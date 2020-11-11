@@ -15,7 +15,7 @@
 #include "retdec/bin2llvmir/providers/fileimage.h"
 #include "retdec/bin2llvmir/providers/lti.h"
 #include "retdec/bin2llvmir/utils/debug.h"
-const bool debug_enabled = false;
+const bool debug_enabled = true;
 
 namespace retdec {
 namespace bin2llvmir {

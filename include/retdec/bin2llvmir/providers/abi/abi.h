@@ -58,6 +58,7 @@ class Abi
 		void addRegister(uint32_t id, llvm::GlobalVariable* reg);
 
 		llvm::GlobalVariable* getSyscallIdRegister();
+		llvm::GlobalVariable* getSyscallIdRegister2();
 		llvm::GlobalVariable* getSyscallReturnRegister();
 		llvm::GlobalVariable* getSyscallArgumentRegister(unsigned n);
 
@@ -145,6 +146,7 @@ class Abi
 		uint32_t _regSyscallReturn = REG_INVALID;
 		/// Register used to pass system call ID.
 		uint32_t _regSyscallId = REG_INVALID;
+		uint32_t _regSyscallId_X86 = X86_REG_EAX;
 		/// Register that is always equal to zero - not every arch have this.
 		uint32_t _regZeroReg = REG_INVALID;
 

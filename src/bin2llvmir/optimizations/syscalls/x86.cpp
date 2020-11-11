@@ -5,7 +5,6 @@
  */
 
 #include <llvm/IR/Constants.h>
-
 #include "retdec/bin2llvmir/optimizations/syscalls/syscalls.h"
 #include "retdec/bin2llvmir/providers/asm_instruction.h"
 
@@ -477,7 +476,7 @@ bool SyscallFixer::runX86_linux_32(AsmInstruction ai)
 	LOG << "x86 syscall @ " << ai.getAddress() << std::endl;
 
 	// Find syscall ID.
-	//
+	// StoreInst only
 	auto* syscallIdReg = _abi->getSyscallIdRegister();
 	StoreInst* store = nullptr;
 	Instruction* it = ai.getLlvmToAsmInstruction()->getPrevNode();
@@ -487,11 +486,18 @@ bool SyscallFixer::runX86_linux_32(AsmInstruction ai)
 		{
 			if (s->getPointerOperand() == syscallIdReg)
 			{
+				LOG << "\t[mmmly] kitaaaaaaaa!!!" << std::endl;
 				store = s;
 				break;
 			}
 		}
 	}
+	/*
+	TODO:
+		push 0x2
+		pop eax
+		int 0x80
+	*/
 	if (store == nullptr || !isa<ConstantInt>(store->getValueOperand()))
 	{
 		LOG << "\tsyscall code not found" << std::endl;

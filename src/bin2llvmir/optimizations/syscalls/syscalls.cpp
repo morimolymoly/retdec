@@ -76,6 +76,11 @@ bool SyscallFixer::run()
 	{
 		return runX86();
 	}
+	else if (_config->getConfig().architecture.isX86_64()) 
+	{
+		LOG << "\t[mmmly] here is x86_64" << std::endl;
+		return false;
+	}
 	else
 	{
 		return false;

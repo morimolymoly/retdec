@@ -126,6 +126,10 @@ void Abi::addRegister(uint32_t id, llvm::GlobalVariable* reg)
 
 llvm::GlobalVariable* Abi::getSyscallIdRegister()
 {
+	/*
+	if (isX86()){
+		return getRegister(_regSyscallId_X86);
+	}*/
 	return getRegister(_regSyscallId);
 }
 
