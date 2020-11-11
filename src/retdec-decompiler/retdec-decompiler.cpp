@@ -929,6 +929,7 @@ int decompile(retdec::config::Config& config, ProgramOptions& po)
 	// Unpacking
 	//
 
+	/*
 	Log::phase("Unpacking");
 	std::vector<std::string> unpackArgs;
 	unpackArgs.push_back("whatever_program_name");
@@ -949,6 +950,7 @@ int decompile(retdec::config::Config& config, ProgramOptions& po)
 		);
 		po.toClean.insert(config.parameters.getOutputUnpackedFile());
 	}
+	*/
 
 	// Decompilation.
 	//
